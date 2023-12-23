@@ -2805,28 +2805,6 @@ void play_puzzle_jingle(void) {
 /**
  * Called from threads: thread5_game_loop
  */
-void play_star_fanfare(void) {
-u16 outcome = (random_u16() % (5 + 1 - 0) + 0); 
-u8 song = SEQ_EVENT_HIGH_SCORE;
-    switch(outcome) 
-        {
-            case 1: song = SEQ_EVENT_HIGH_SCORE2; break;
-            case 2: song = SEQ_EVENT_HIGH_SCORE3; break;
-            case 3: song = SEQ_EVENT_HIGH_SCORE4; break;
-            case 4: song = SEQ_EVENT_HIGH_SCORE5; break;
-            default: song = SEQ_EVENT_HIGH_SCORE; break;
-        }
-    seq_player_play_sequence(SEQ_PLAYER_ENV, song, 0);
-    sBackgroundMusicMaxTargetVolume = TARGET_VOLUME_IS_PRESENT_FLAG | 20;
-#if defined(VERSION_EU) || defined(VERSION_SH)
-    D_EU_80300558 = 2;
-#endif
-    begin_background_music_fade(50);
-}
-
-/**
- * Called from threads: thread5_game_loop
- */
 void play_power_star_jingle(u8 arg0) {
     if (!arg0) {
         sBackgroundMusicTargetVolume = 0;
