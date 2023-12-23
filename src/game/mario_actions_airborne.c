@@ -291,7 +291,7 @@ void update_air_hovering(struct MarioState *m)
     }
     else
     {
-    	if(abs(m->forwardVel) > 0.1f)
+    	if(fabsf(m->forwardVel) > 0.1f)
     	{
     		m->forwardVel = (m->forwardVel * 0.75f);
     	}
